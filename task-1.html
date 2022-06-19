@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1 - Crimson Network</title>
+</head>
+
+<body>
+    <nav class="bg-primary">
+        <h1>JAWABAN TASK - 1 CRIMSON NETWORK</h1>
+        <h3>Silahkan masukkan kata :)</h3>
+
+        <form action="#" id="formt1">
+            <input type="text" id="kata" placeholder="Isi kata disini">
+            <input type="submit" value="Submit">
+        </form>
+
+        <h3>Jawaban Task - 1 CRIMSON NETWORK : </h3>
+        <div id="jawaban">
+
+        </div>
+    </nav>
+
+    <script>
+        let forminput = document.getElementById("formt1");
+        let jawaban = document.getElementById("jawaban");
+
+        forminput.addEventListener("submit", function (e) {
+            e.preventDefault()
+            let kata = document.getElementById("kata").value
+
+            let jawabanakhir = "";
+
+            let temp = "0";
+
+            if (kata == "") {
+                jawabanakhir += "Silahkan isi kata yang ingin diinput!";
+            }
+            else {
+                // for ($i = "0"; $i < strlen(kata); $i++) {
+                //     temp += temp + 1;
+                //     jawabanakhir += String.valueOf(temp);
+                // }
+                // const count = {};
+
+                // array.forEach(element => {
+                //     count[element] = count[element] ? (count[element] + 1) : 1;
+                // });
+
+                // jawabanakhir += count;
+
+                let listtempvalue = [];
+                let count = {};
+                let tmpjwbn = "";
+
+                for (let i = 0; i < kata.length; i++) {
+                    count.name = kata[i];
+                    count.number = 1;
+                    listtempvalue.push(count);
+                    count = {};
+                }
+
+                for (let x = 0; x < listtempvalue.length; x++) {
+                    const tempkata = listtempvalue[x].name;
+                    for (let i = x + 1; i < listtempvalue.length; i++) {
+                        if (tempkata == listtempvalue[i].name) {
+                            listtempvalue[x].number += 1;
+                            listtempvalue.splice(i, 1);
+                        }
+                    }
+                }
+
+                for (let x = 0; x < listtempvalue.length; x++) {
+                    let name = listtempvalue[x].name;
+                    let number = listtempvalue[x].number;
+                    tmpjwbn = console.log("- " + name + ": " + number + "\n");
+                }
+                jawabanakhir += tmpjwbn;
+            }
+            jawaban.innerHTML = jawabanakhir;
+        })
+    </script>
+</body>
+
+</html>
