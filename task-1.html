@@ -54,10 +54,11 @@
 
                 let listtempvalue = [];
                 let count = {};
-                let tmpjwbn = "";
+                let tmpjwbn = " ";
+                let kt = kata.replace(/ /g, "");
 
-                for (let i = 0; i < kata.length; i++) {
-                    count.name = kata[i];
+                for (let i = 0; i < kt.length; i++) {
+                    count.name = kt[i];
                     count.number = 1;
                     listtempvalue.push(count);
                     count = {};
@@ -76,8 +77,9 @@
                 for (let x = 0; x < listtempvalue.length; x++) {
                     let name = listtempvalue[x].name;
                     let number = listtempvalue[x].number;
-                    tmpjwbn = console.log("- " + name + ": " + number + "\n");
+                    tmpjwbn += "- " + name + ": " + number + "<br>";
                 }
+
                 jawabanakhir += tmpjwbn;
             }
             jawaban.innerHTML = jawabanakhir;
